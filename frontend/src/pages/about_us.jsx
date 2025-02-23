@@ -132,7 +132,7 @@ const AboutPage = () => {
         <div className="container text-center  my-5">
           <div className="row mt-4 justify-content-center">
             {/* Box 1 */}
-            <div className="col-md-3 col-lg-3 d-flex justify-content-center">
+            <div className="col-md-3 col-lg-3 col-sm-12 d-flex justify-content-center">
               <div className="Empowering_Innovators-custom-card-1">
                 <div className="icon-circle-1 mb-3">
                   <i>
@@ -154,7 +154,7 @@ const AboutPage = () => {
               </div>
             </div>
             {/* Box 2 */}
-            <div className="col-md-3 col-lg-3 d-flex justify-content-center">
+            <div className="col-md-3 col-lg-3 col-sm-12 d-flex justify-content-center">
               <div className="Empowering_Innovators-custom-card-2">
                 <div className="icon-circle-2 mb-3">
                   <i>
@@ -173,7 +173,7 @@ const AboutPage = () => {
               </div>
             </div>
             {/* Box 3 */}
-            <div className="col-md-3 col-lg-3 d-flex justify-content-center">
+            <div className="col-md-3 col-lg-3 col-sm-12 d-flex justify-content-center">
               <div className="Empowering_Innovators-custom-card-3">
                 <div className="icon-circle-3 mb-3">
                   <i>
@@ -194,7 +194,7 @@ const AboutPage = () => {
               </div>
             </div>
             {/* Box 4 */}
-            <div className="col-md-3 col-lg-3 d-flex justify-content-center">
+            <div className="col-md-3 col-lg-3 col-sm-12 d-flex justify-content-center">
               <div className="Empowering_Innovators-custom-card-4">
                 <div className="icon-circle-4 mb-3">
                   <i>

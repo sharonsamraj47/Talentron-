@@ -51,6 +51,15 @@
   background: linear-gradient(to right, #016bb8, #033684);
 }
 
+@media (max-width: 768px) {
+  .indicators-css{
+    display: flex;
+    gap: 8px;
+    top: "80%" ;
+ }
+ 
+}
+
 .scrollable-container {
   overflow-x: auto;
   white-space: nowrap;

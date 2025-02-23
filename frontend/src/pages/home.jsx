@@ -140,7 +140,7 @@ const Home = () => {
   </button>
 
   {/* Indicators (Always Visible) */}
-  <div className="position-absolute start-50 translate-middle-x" style={{ top: "60%", display: "flex", gap: "8px" }}>
+  <div className="position-absolute start-50 translate-middle-x indicators-css" style={{ top: "60%", display: "flex", gap: "8px" }}>
     {slides.map((_, index) => (
       <span
         key={index}

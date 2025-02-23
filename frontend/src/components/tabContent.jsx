@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Tab, Nav, Container, Row, Col } from "react-bootstrap";
+import { Tab, Nav, Container, Row, Col, Form } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 
@@ -111,7 +111,7 @@ const TabView = () => {
   ];
 
   const fullstackContent = {
-    firstThree: [
+    firstColumn: [
       {
         title: "Front-End Technologies",
         tickMark: "src/assets/images/teenyicons_tick-circle-solid.png",
@@ -122,6 +122,8 @@ const TabView = () => {
         ],
         image: "src/assets/images/training_program_img/front-end-tech.png",
       },
+    ],
+    secondColumn: [
       {
         title: "Back-end Technologies",
         tickMark: "src/assets/images/teenyicons_tick-circle-solid.png",
@@ -132,7 +134,8 @@ const TabView = () => {
         ],
         image: "src/assets/images/training_program_img/back-end-tech.png",
       },
-      {
+    ],
+     thirdColumn: [{
         title: "Deployment and Hosting",
         tickMark: "src/assets/images/teenyicons_tick-circle-solid.png",
         items: [
@@ -172,7 +175,7 @@ const TabView = () => {
   };
 
   const frontEndContent = {
-    firstThree: [
+    firstColumn: [
       {
         title: "Front-End Technologies",
         tickMark: "src/assets/images/teenyicons_tick-circle-solid.png",
@@ -183,7 +186,8 @@ const TabView = () => {
         ],
         image: "src/assets/images/training_program_img/front-end-tech.png",
       },
-      {
+    ],
+     secondColumn: [{
         title: "Back-end Technologies",
         tickMark: "src/assets/images/teenyicons_tick-circle-solid.png",
         items: [
@@ -193,6 +197,8 @@ const TabView = () => {
         ],
         image: "src/assets/images/training_program_img/back-end-tech.png",
       },
+    ],
+    thirdColumn: [
       {
         title: "Deployment and Hosting",
         tickMark: "src/assets/images/teenyicons_tick-circle-solid.png",
@@ -232,7 +238,7 @@ const TabView = () => {
     ],
   };
   const DataEngineeringContent = {
-    firstThree: [
+    firstColumn: [
       {
         title: "Front-End Technologies",
         tickMark: "src/assets/images/teenyicons_tick-circle-solid.png",
@@ -243,6 +249,8 @@ const TabView = () => {
         ],
         image: "src/assets/images/training_program_img/front-end-tech.png",
       },
+    ],
+    secondColumn: [
       {
         title: "Back-end Technologies",
         tickMark: "src/assets/images/teenyicons_tick-circle-solid.png",
@@ -253,6 +261,8 @@ const TabView = () => {
         ],
         image: "src/assets/images/training_program_img/back-end-tech.png",
       },
+    ],
+    thirdColumn: [
       {
         title: "Deployment and Hosting",
         tickMark: "src/assets/images/teenyicons_tick-circle-solid.png",
@@ -292,7 +302,7 @@ const TabView = () => {
     ],
   };
   const SoftwareTestingContent = {
-    firstThree: [
+    firstColumn: [
       {
         title: "Front-End Technologies",
         tickMark: "src/assets/images/teenyicons_tick-circle-solid.png",
@@ -303,6 +313,8 @@ const TabView = () => {
         ],
         image: "src/assets/images/training_program_img/front-end-tech.png",
       },
+    ],
+    secondColumn: [
       {
         title: "Back-end Technologies",
         tickMark: "src/assets/images/teenyicons_tick-circle-solid.png",
@@ -313,6 +325,8 @@ const TabView = () => {
         ],
         image: "src/assets/images/training_program_img/back-end-tech.png",
       },
+    ],
+    thirdColumn: [
       {
         title: "Deployment and Hosting",
         tickMark: "src/assets/images/teenyicons_tick-circle-solid.png",
@@ -364,123 +378,164 @@ const TabView = () => {
           ))}
         </Nav>
 
-        <Tab.Content className="">
+        <Tab.Content className="justify-content-center">
         <Tab.Pane eventKey="fullstack" className={`fullstack-tabView ${activeKey === "fullstack" ? "active-pane" : ""}`}>
-          <Row>
-            {fullstackContent.firstThree.map((content, i) => (
-              <Col md={3} sm={12} key={i} className="mb-3 mt-3 first-threecolumn">
-                <div className="fullstack-tabView-box">
-                  <img src={content.image} alt={content.title} className="mb-2 TabviewImages" />
-                  <h6 className="tabComponent-title">{content.title}</h6>
-                  <ul className="list-unstyled">
-                    {content.items.map((item, index) => (
-                      <li key={index} className="tabComponent-points"><img src={content.tickMark} alt="tickMark" /> {item}</li>
-                    ))}
-                  </ul>
-                </div>
-              </Col>
+        <Row className="justify-content-center">
+  {[...fullstackContent.firstColumn, ...fullstackContent.secondColumn, ...fullstackContent.thirdColumn].map((content, i) => (
+    <Col lg={3} md={6} sm={12} key={i} className="mb-3 mt-3 d-flex justify-content-center">
+      <div className="fullstack-tabView-box">
+        <img src={content.image} alt={content.title} className="mb-2 TabviewImages" />
+        <h6 className="tabComponent-title">{content.title}</h6>
+        <ul className="list-unstyled">
+          {content.items.map((item, index) => (
+            <li key={index} className="tabComponent-points">
+              <img src={content.tickMark} alt="tickMark" /> {item}
+            </li>
+          ))}
+        </ul>
+        {content.title === "Front-End Technologies" && (
+          <button className="register-button mt-5">Register now →</button>
+        )}
+      </div>
+    </Col>
+  ))}
+
+  <Col lg={3} md={6} sm={12} className="mt-3 d-flex justify-content-center">
+    <div className="fullstack-lastColumn">
+      {fullstackContent.lastColumn.map((content, i) => (
+        <div className="p-2 mb-2 fullstack-tabView-box" key={i}>
+          <h6 className="tabComponent-title">{content.title}</h6>
+          <ul className="list-unstyled">
+            {content.items.map((item, index) => (
+              <li key={index} className="tabComponent-points">
+                <img src={content.tickMark} alt="tickMark" /> {item}
+              </li>
             ))}
-            <Col md={3} sm={12} className="mt-3 last-column">
-              {fullstackContent.lastColumn.map((content, i) => (
-                <div className="p-2 mb-2 fullstack-lastColumn" key={i}>
-                  <h6 className="tabComponent-title">{content.title}</h6>
-                  <ul className="list-unstyled">
-                    {content.items.map((item, index) => (
-                      <li key={index} className="tabComponent-lastColumn-points"><img src={content.tickMark} alt="tickMark" /> {item}</li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </Col>
-          </Row>
+          </ul>
+        </div>
+      ))}
+    </div>
+  </Col>
+</Row>
+
         </Tab.Pane>
-          <Tab.Pane eventKey="frontend" className={`frontend-tabView ${activeKey === "fullstack" ? "active-pane" : ""}`}>
-            <Row>
-              {frontEndContent.firstThree.map((content, i) => (
-                <Col md={3} sm={12} key={i} className="mb-3 mt-3 first-threecolumn">
-                  <div className="frontend-tabView-box" >
-                    <img src={content.image} alt={content.title} className="mb-2 TabviewImages" />
-                    <h6 className="tabComponent-title">{content.title}</h6>
-                    <ul className="list-unstyled">
-                      {content.items.map((item, index) => (
-                        <li key={index} className="tabComponent-points"><img src={content.tickMark} alt="tickMark" /> {item}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </Col>
+        <Tab.Pane eventKey="frontend" className={`frontend-tabView ${activeKey === "frontend" ? "active-pane" : ""}`}>
+  <Row className="justify-content-center">
+    {[...frontEndContent.firstColumn, ...frontEndContent.secondColumn, ...frontEndContent.thirdColumn].map((content, i) => (
+      <Col lg={3} md={6} sm={12} key={i} className="mb-3 mt-3 d-flex justify-content-center">
+        <div className="frontend-tabView-box">
+          <img src={content.image} alt={content.title} className="mb-2 TabviewImages" />
+          <h6 className="tabComponent-title">{content.title}</h6>
+          <ul className="list-unstyled">
+            {content.items.map((item, index) => (
+              <li key={index} className="tabComponent-points">
+                <img src={content.tickMark} alt="tickMark" /> {item}
+              </li>
+            ))}
+          </ul>
+          {content.title === "Front-End Technologies" && (
+            <button className="register-button mt-5">Register now →</button>
+          )}
+        </div>
+      </Col>
+    ))}
+
+    <Col lg={3} md={6} sm={12} className="mt-3 d-flex justify-content-center">
+      <div className="frontend-lastColumn">
+        {frontEndContent.lastColumn.map((content, i) => (
+          <div className="p-2 mb-2 frontend-tabView-box" key={i}>
+            <h6 className="tabComponent-title">{content.title}</h6>
+            <ul className="list-unstyled">
+              {content.items.map((item, index) => (
+                <li key={index} className="tabComponent-points">
+                  <img src={content.tickMark} alt="tickMark" /> {item}
+                </li>
               ))}
-              <Col md={3} sm={12} className="mt-3 last-column">
-                {frontEndContent.lastColumn.map((content, i) => (
-                  <div className="p-2 mb-2 frontend-lastColumn"  key={i}>
-                    <h6 className="tabComponent-title">{content.title}</h6>
-                    <ul className="list-unstyled">
-                      {content.items.map((item, index) => (
-                        <li key={index} className="tabComponent-lastColumn-points"><img src={content.tickMark} alt="tickMark" /> {item}</li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </Col>
-            </Row>
-          </Tab.Pane>
-          <Tab.Pane eventKey="DataEngineering" className={`DataEngineering-tabView ${activeKey === "fullstack" ? "active-pane" : ""}`}>
-            <Row>
-              {DataEngineeringContent.firstThree.map((content, i) => (
-                <Col md={3} sm={12} key={i} className="mb-3 mt-3 first-threecolumn">
-                  <div className="DataEngineering-tabView-box" >
-                    <img src={content.image} alt={content.title} className="mb-2 TabviewImages" />
-                    <h6 className="tabComponent-title">{content.title}</h6>
-                    <ul className="list-unstyled">
-                      {content.items.map((item, index) => (
-                        <li key={index} className="tabComponent-points"><img src={content.tickMark} alt="tickMark" /> {item}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </Col>
+            </ul>
+          </div>
+        ))}
+      </div>
+    </Col>
+  </Row>
+</Tab.Pane>
+<Tab.Pane eventKey="DataEngineering" className={`DataEngineering-tabView ${activeKey === "DataEngineering" ? "active-pane" : ""}`}>
+  <Row className="justify-content-center">
+    {[...DataEngineeringContent.firstColumn, ...DataEngineeringContent.secondColumn, ...DataEngineeringContent.thirdColumn].map((content, i) => (
+      <Col lg={3} md={6} sm={12} key={i} className="mb-3 mt-3 d-flex justify-content-center">
+        <div className="DataEngineering-tabView-box">
+          <img src={content.image} alt={content.title} className="mb-2 TabviewImages" />
+          <h6 className="tabComponent-title">{content.title}</h6>
+          <ul className="list-unstyled">
+            {content.items.map((item, index) => (
+              <li key={index} className="tabComponent-points">
+                <img src={content.tickMark} alt="tickMark" /> {item}
+              </li>
+            ))}
+          </ul>
+          {content.title === "Front-End Technologies" && (
+            <button className="register-button mt-5">Register now →</button>
+          )}
+        </div>
+      </Col>
+    ))}
+
+    <Col lg={3} md={6} sm={12} className="mt-3 d-flex justify-content-center">
+      <div className="DataEngineering-lastColumn">
+        {DataEngineeringContent.lastColumn.map((content, i) => (
+          <div className="p-2 mb-2 DataEngineering-tabView-box" key={i}>
+            <h6 className="tabComponent-title">{content.title}</h6>
+            <ul className="list-unstyled">
+              {content.items.map((item, index) => (
+                <li key={index} className="tabComponent-points">
+                  <img src={content.tickMark} alt="tickMark" /> {item}
+                </li>
               ))}
-              <Col md={3} sm={12} className="mt-3 last-column">
-                {DataEngineeringContent.lastColumn.map((content, i) => (
-                  <div className="p-2 mb-2 DataEngineering-lastColumn"  key={i}>
-                    <h6 className="tabComponent-title">{content.title}</h6>
-                    <ul className="list-unstyled">
-                      {content.items.map((item, index) => (
-                        <li key={index} className="tabComponent-lastColumn-points"><img src={content.tickMark} alt="tickMark" /> {item}</li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </Col>
-            </Row>
-          </Tab.Pane>
-          <Tab.Pane eventKey="SoftwareTesting" className={`SoftwareTesting-tabView ${activeKey === "fullstack" ? "active-pane" : ""}`}>
-            <Row>
-              {SoftwareTestingContent.firstThree.map((content, i) => (
-                <Col md={3} sm={12} key={i} className="mb-3 mt-3 first-threecolumn">
-                  <div className="SoftwareTesting-tabView-box" >
-                    <img src={content.image} alt={content.title} className="mb-2 TabviewImages" />
-                    <h6 className="tabComponent-title">{content.title}</h6>
-                    <ul className="list-unstyled">
-                      {content.items.map((item, index) => (
-                        <li key={index} className="tabComponent-points"><img src={content.tickMark} alt="tickMark" /> {item}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </Col>
+            </ul>
+          </div>
+        ))}
+      </div>
+    </Col>
+  </Row>
+</Tab.Pane>
+<Tab.Pane eventKey="SoftwareTesting" className={`SoftwareTesting-tabView ${activeKey === "SoftwareTesting" ? "active-pane" : ""}`}>
+  <Row className="justify-content-center">
+    {[...SoftwareTestingContent.firstColumn, ...SoftwareTestingContent.secondColumn, ...SoftwareTestingContent.thirdColumn].map((content, i) => (
+      <Col lg={3} md={6} sm={12} key={i} className="mb-3 mt-3 d-flex justify-content-center">
+        <div className="SoftwareTesting-tabView-box">
+          <img src={content.image} alt={content.title} className="mb-2 TabviewImages" />
+          <h6 className="tabComponent-title">{content.title}</h6>
+          <ul className="list-unstyled">
+            {content.items.map((item, index) => (
+              <li key={index} className="tabComponent-points">
+                <img src={content.tickMark} alt="tickMark" /> {item}
+              </li>
+            ))}
+          </ul>
+          {content.title === "Front-End Technologies" && (
+            <button className="register-button mt-5">Register now →</button>
+          )}
+        </div>
+      </Col>
+    ))}
+
+    <Col lg={3} md={6} sm={12} className="mt-3 d-flex justify-content-center">
+      <div className="SoftwareTesting-lastColumn">
+        {SoftwareTestingContent.lastColumn.map((content, i) => (
+          <div className="p-2 mb-2 SoftwareTesting-tabView-box" key={i}>
+            <h6 className="tabComponent-title">{content.title}</h6>
+            <ul className="list-unstyled">
+              {content.items.map((item, index) => (
+                <li key={index} className="tabComponent-points">
+                  <img src={content.tickMark} alt="tickMark" /> {item}
+                </li>
               ))}
-              <Col md={3} sm={12} className="mt-3 last-column">
-                {SoftwareTestingContent.lastColumn.map((content, i) => (
-                  <div className="p-2 mb-2 SoftwareTesting-lastColumn"  key={i}>
-                    <h6 className="tabComponent-title">{content.title}</h6>
-                    <ul className="list-unstyled">
-                      {content.items.map((item, index) => (
-                        <li key={index} className="tabComponent-lastColumn-points"><img src={content.tickMark} alt="tickMark" /> {item}</li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </Col>
-            </Row>
-          </Tab.Pane>
+            </ul>
+          </div>
+        ))}
+      </div>
+    </Col>
+  </Row>
+</Tab.Pane>
         </Tab.Content>
       </Tab.Container>
     </Container>

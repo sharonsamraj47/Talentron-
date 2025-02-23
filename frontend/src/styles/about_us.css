@@ -247,7 +247,7 @@ text-decoration-skip-ink: none;
   
   @media (max-width: 1200px) {
     .Empowering_Innovators-custom-card-1, .Empowering_Innovators-custom-card-2, .Empowering_Innovators-custom-card-3, .Empowering_Innovators-custom-card-4 {
-      max-width: 230px;
+      min-width: 250px ;
       height: auto;
     }
     

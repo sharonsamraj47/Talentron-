@@ -23,8 +23,9 @@
   display: flex !important;
   flex-wrap: nowrap !important;
   overflow-x: auto !important; 
+  overflow-y: hidden !important;
   white-space: nowrap !important;
-  -webkit-overflow-scrolling: touch; 
+  
 }
 
 .nav-tabs::-webkit-scrollbar {
@@ -38,6 +39,18 @@
   border: none;
   padding: 10px 15px;
   min-width: 324px;
+}
+.register-button{
+        background-Color: #006CBB; 
+        color: white; 
+        padding: 10px 20px; 
+        border: none; 
+        border-radius: 5px; 
+        margin-top: 10px; 
+        text-align: left; 
+        margin-left: 10px; 
+        padding-left: 15px !important;
+        cursor: pointer;
 }
 
 .nav-tabs .nav-link.active.nav-tab-fullstack {
@@ -104,12 +117,41 @@
   border-width: 1px;
 
 }
-.first-threecolumn{
-  padding-left: 40px!important;
-  margin-right: -30px;
+.fullstack-tabView-box, .fullstack-lastColumn, .frontend-tabView-box, .frontend-lastColumn, .DataEngineering-tabView-box, .DataEngineering-lastColumn, .SoftwareTesting-tabView-box, .SoftwareTesting-lastColumn{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Aligns content inside card to the left */
+  text-align: left; /* Ensures text remains left-aligned */
+  width: 100%;
 }
+
+.tabComponent-points {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Adds space between tick icon and text */
+}
+
+.tabComponent-points img {
+  width: 16px; /* Adjust tick icon size */
+  height: 16px;
+}
+
+@media (max-width: 1400px) {
+  .tabComponent-points {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .first-threecolumn, .last-column {
+    display: flex;
+    justify-content: center;
+  }
+}
+
 .last-column{
-  padding-left: 50px!important;
+  padding-left: 35px!important;
 }
 .fullstack-tabView-box{
   width: 280px;
@@ -167,6 +209,13 @@
   box-shadow: none !important;
   background-color: #fff;
   border: 1px solid hsl(71, 79%, 65%);
+}
+
+
+@media (max-width: 768px) {
+  .fullstack-lastColumn, .frontend-lastColumn, .DataEngineering-lastColumn, .SoftwareTesting-lastColumn {
+   height: 630px;
+  }
 }
 .tabComponent-text {
   font-family: "Montserrat", sans-serif;
