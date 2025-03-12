@@ -31,7 +31,7 @@
   padding: 0;
   font-size: 24px;
   cursor: pointer;
-  z-index: 10;
+  z-index: 1000;
 }
 
 .left-arrow {
@@ -43,6 +43,150 @@
   right: 30px;
   color: white;
 }
+@media (max-width: 1980px) {
+  .left-arrow {
+    left: 200px;
+    color: white;
+  }
+  
+  .right-arrow {
+    right: 200px;
+    color: white;
+  }
+}
+@media (max-width: 1900px) {
+  .left-arrow {
+    left: 160px;
+    color: white;
+  }
+  
+  .right-arrow {
+    right: 160px;
+    color: white;
+  }
+}
+@media (max-width: 1714px) {
+  .left-arrow {
+    left: 70px;
+    color: white;
+  }
+  
+  .right-arrow {
+    right: 70px;
+    color: white;
+  }
+}
+@media (max-width: 1548px) {
+  .left-arrow {
+    left: 40px;
+    color: white;
+  }
+  
+  .right-arrow {
+    right: 40px;
+    color: white;
+  }
+}
+@media (max-width: 1506px) {
+  .left-arrow {
+    left: 20px;
+    color: white;
+  }
+  
+  .right-arrow {
+    right: 20px;
+    color: white;
+  }
+}
+@media (max-width: 1446px) {
+  .left-arrow {
+    left: 5px;
+    color: white;
+  }
+  
+  .right-arrow {
+    right: 5px;
+    color: white;
+  }
+}
+@media (max-width: 1399px) {
+  .left-arrow {
+    left: 20px;
+    color: white;
+  }
+  
+  .right-arrow {
+    right: 20px;
+    color: white;
+  }
+}
+@media (max-width: 1257px) {
+  .left-arrow {
+    left: 5px;
+    color: white;
+  }
+  
+  .right-arrow {
+    right: 5px;
+    color: white;
+  }
+}
+@media (max-width: 1200px) {
+  .left-arrow {
+    left: 30px;
+    color: white;
+  }
+  
+  .right-arrow {
+    right: 30px;
+    color: white;
+  }
+}
+@media (max-width: 1091px) {
+  .indicators-css {
+    top:60% !important;
+
+   }
+  .left-arrow {
+    left: 1px;
+    color: white;
+  }
+  
+  .right-arrow {
+    right: 1px;
+    color: white;
+  }
+}
+@media (max-width: 991px){
+  .indicators-css {
+    top:70% !important;
+
+   }
+}
+@media (max-width: 991px) {
+
+  .left-arrow {
+    left: 40px;
+    color: white;
+  }
+  
+  .right-arrow {
+    right: 40px;
+    color: white;
+  }
+}
+@media (max-width: 480px) {
+  .slider-arrow {
+    width:30px;
+    height:30px;
+    font-size: 18px;
+  
+  }
+}
+
+
+
+
 .below-header {
   position: relative;
 }
@@ -51,11 +195,25 @@
   background: linear-gradient(to right, #016bb8, #033684);
 }
 
+.indicators-css {
+ top:60%;
+  display: flex; 
+  gap: 8px;
+}
+
+@media (max-width: 1000px) {
+  .indicators-css{
+    display: flex;
+    gap: 8px;
+    top: 70%;
+ }
+ 
+}
 @media (max-width: 768px) {
   .indicators-css{
     display: flex;
     gap: 8px;
-    top: "80%" ;
+    top: 68%;
  }
  
 }
@@ -90,9 +248,10 @@
   align-items: center;
 }
 .mobile-image-container img {
-  max-width: 80%;
+  max-width: 50%;
   height: auto;
 }
+
 
 /* Indicators - Always Visible */
 .dot {
@@ -272,6 +431,7 @@
 }
 
 .process-text {
+  font-family: "Montserrat", sans-serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 19.5px;
@@ -394,6 +554,7 @@
 }
 
 .training-process {
+  color: #333333;
   text-align: center;
   min-width: 150px;
   position: relative;
@@ -426,7 +587,7 @@
   top: 50%;
   left: 0;
   right: 0;
-  height: 2px;
+  height: 3px;
   background-color: #000000;
   z-index: 1;
 }
@@ -447,7 +608,7 @@
   top: 50%;
   left: 100px;
   right: 0;
-  height: 2px;
+  height: 3px;
   background-color: #000000;
   z-index: 1;
   width: 50%;
@@ -469,20 +630,20 @@
   top: 50%;
   left: 0;
   right: 0;
-  height: 2px;
+  height: 3px;
   background-color: #000000;
   z-index: 1;
   width: 50%;
 }
 
 .circle {
+  top:1.5px;
   width: 12px;
   height: 12px;
   background-color: #fff;
-  border: 2px solid #007bff;
+  border: 3px solid #007bff;
   border-radius: 50%;
   position: absolute;
-  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
@@ -509,33 +670,26 @@
   text-align: center;
 }
 .training-subpoints {
+  color: #575757;
   font-family: "Montserrat", sans-serif;
   font-size: 12px;
   font-weight: 400;
   margin: 5;
 }
 
-.custom-shape {
-  background-color: #006cbb;
-  color: white;
-  font-size: 12px;
-  font-weight: bold;
-  padding: 3px 13px;
+.rectangle-arrow {
   position: relative;
-  display: inline-block;
-  border-radius: 3px 0 0 3px;
-}
-
-.custom-shape::after {
-  content: "";
-  position: absolute;
-  top: -1.5px;
-  right: -24px;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 14px 3px 14px 25px;
-  border-color: transparent transparent transparent #006cbb;
+  width: 105px; 
+  height: 21px; 
+  background: url("../images/Rectangle_arrow.png") no-repeat center center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px; 
+  font-weight: 700;
+  color: #ffffff; 
+  text-align: center;
 }
 
 /* Our Training Process - End */

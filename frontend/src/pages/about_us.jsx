@@ -1,28 +1,60 @@
-import React from "react";
+import React, { useState,useEffect } from "react";
 import FormButton from "../components/form_button";
 import "../styles/global.css";
 
 const AboutPage = () => {
+  const [showForm, setShowForm] = useState(false);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const images = document.querySelectorAll("img");
+  
+    if (images.length === 0) {
+      setLoading(false); // If there are no images, stop loading immediately
+      return;
+    }
+  
+    const imagePromises = Array.from(images).map((img) => {
+      return new Promise((resolve) => {
+        if (img.complete) {
+          resolve(); // Already loaded
+        } else {
+          img.onload = () => resolve(); // Resolve when loaded
+          img.onerror = () => resolve(); // Resolve even if there's an error
+        }
+      });
+    });
+  
+    Promise.all(imagePromises).then(() => setLoading(false)); // Set loading false once all images are loaded
+},[]);
+
   return (
     <>
+   {loading ? (
+        <div className="loading-container">
+          <div className="loader">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+      ) : (
       <main>
-        <FormButton/>
         {/* title head - start */}
         <div className="about-us-head-container">
           <div className="dark-background">
             <div className="top-banner">
               <i>
-                <img src="src/assets/images/training_partner_img/partners.png" />
+                <img src="/images/partners.png" />
               </i>
               <span className="banner-text-style">Who we are</span>
             </div>
             <h1 className="section-heading">About us!</h1>
             <h1 className="Below-section-heading blue-text">Our Talentron</h1>
             <p className="section-paragraph">
-              Lorem ipsum, or lipsum as it is sometimes known, is dummy text
-              used in laying out print, graphic or web designs.
+            Talentron is a dynamic platform where you can share your knowledge and technical skills, connect with industry professionals, enrich your career, and unlock new opportunities 
             </p>
           </div>
+          <FormButton/>
         </div>
 
         {/* title head - End */}
@@ -41,14 +73,14 @@ const AboutPage = () => {
               <div className="welcome-to-talentron-overlay-container">
                 {/* Main Image */}
                 <img
-                  src="src/assets/images/about_us_img/welcometotalentron.png"
+                  src="/images/welcometotalentron.png"
                   alt="Client choose us"
                   className="main-image"
                 />
 
                 {/* bottom-right Image */}
                 <img
-                  src="src/assets/images/about_us_img/solomon_journey.png"
+                  src="/images/solomon_journey.png"
                   alt="8890 client"
                   className="overlay-bottom-right"
                 />
@@ -79,7 +111,7 @@ const AboutPage = () => {
                 {/* Image Section */}
                 <div className="founder-image-section">
                   <img
-                    src="src/assets/images/about_us_img/founder_img.png"
+                    src="/images/founder_img.png"
                     alt="Founder Image"
                     className="img-fluid rounded founder-image"
                   />
@@ -103,7 +135,7 @@ const AboutPage = () => {
                 {/* LinkedIn Image */}
                 <div className="LinkedIn-img">
                   <img
-                    src="src/assets/images/about_us_img/linkedin_img.png"
+                    src="/images/linkedin_img.png"
                     alt="LinkedIn Icon"
                   />
                 </div>
@@ -137,7 +169,7 @@ const AboutPage = () => {
                 <div className="icon-circle-1 mb-3">
                   <i>
                     <img
-                      src="src/assets/images/about_us_img/mdi_head-lightbulb.png"
+                      src="/images/mdi_head-lightbulb.png"
                       alt="Head-lightbulb"
                       className="mb-1"
                     />
@@ -159,7 +191,7 @@ const AboutPage = () => {
                 <div className="icon-circle-2 mb-3">
                   <i>
                     <img
-                      src="src/assets/images/about_us_img/healthicons_i-training-class.png"
+                      src="/images/healthicons_i-training-class.png"
                       alt="training-class"
                       className="mb-1"
                     />
@@ -178,7 +210,7 @@ const AboutPage = () => {
                 <div className="icon-circle-3 mb-3">
                   <i>
                     <img
-                      src="src/assets/images/about_us_img/game-icons_anvil-impact.png"
+                      src="/images/game-icons_anvil-impact.png"
                       alt="anvil-impact"
                       className="mb-1"
                     />
@@ -199,7 +231,7 @@ const AboutPage = () => {
                 <div className="icon-circle-4 mb-3">
                   <i>
                     <img
-                      src="src/assets/images/about_us_img/vaadin_handshake.png"
+                      src="/images/vaadin_handshake.png"
                       alt="handshake"
                       className="mb-1"
                     />
@@ -226,7 +258,7 @@ const AboutPage = () => {
                 <div className="mission-vision-icon-circle mb-3">
                   <i>
                     <img
-                      src="src/assets/images/about_us_img/tabler_target-arrow.png"
+                      src="/images/tabler_target-arrow.png"
                       alt="Customer_Satisfaction"
                       className="mb-1"
                     />
@@ -235,14 +267,14 @@ const AboutPage = () => {
                 <h5 className="mission-vision-title">Our Mission</h5>
                 <ul className="list-unstyled">
                   <li className="mission-vision-points mb-2">
-                    <img src="src/assets/images/about_us_img/white-tick.png" />{" "}
+                    <img src="/images/white-tick.png" />{" "}
                     <span>
                       Elevate our workforce by offering comprehensive training
                       in the latest technologies and associated ecosystems.
                     </span>
                   </li>
                   <li className="mission-vision-points mb-2">
-                    <img src="src/assets/images/about_us_img/white-tick.png" />{" "}
+                    <img src="/images/white-tick.png" />{" "}
                     <span>
                       Empower our team to emerge as dynamic solution providers
                       for global organizations, ensuring they are well-equipped
@@ -251,7 +283,7 @@ const AboutPage = () => {
                     </span>
                   </li>
                   <li className="mission-vision-points mb-2">
-                    <img src="src/assets/images/about_us_img/white-tick.png" />{" "}
+                    <img src="/images/white-tick.png" />{" "}
                     <span>
                       Foster the development of essential soft skills and
                       decision-making abilities.
@@ -265,7 +297,7 @@ const AboutPage = () => {
                 <div className="mission-vision-icon-circle mb-3">
                   <i>
                     <img
-                      src="src/assets/images/about_us_img/mdi_eye-check.png"
+                      src="/images/mdi_eye-check.png"
                       alt="Customer_Satisfaction"
                       className="mb-1"
                     />
@@ -274,7 +306,7 @@ const AboutPage = () => {
                 <h5 className="mission-vision-title">Our Vision</h5>
                 <ul className="list-unstyled">
                   <li className="mission-vision-points mb-2">
-                    <img src="src/assets/images/about_us_img/white-tick.png" />{" "}
+                    <img src="/images/white-tick.png" />{" "}
                     <span>
                       We pledge to create a positive and diverse learning
                       environment for our students that fosters continuous
@@ -283,7 +315,7 @@ const AboutPage = () => {
                     </span>
                   </li>
                   <li className="mission-vision-points mb-2">
-                    <img src="src/assets/images/about_us_img/white-tick.png" />{" "}
+                    <img src="/images/white-tick.png" />{" "}
                     <span>
                       We are dedicated to delivering unparalleled value to our
                       customers through the highest ethical standards,
@@ -312,7 +344,7 @@ const AboutPage = () => {
                 <div className="icon-circle mb-3">
                   <i>
                     <img
-                      src="src/assets/images/about_us_img/Integrity.png"
+                      src="/images/Integrity.png"
                       alt="Integrity"
                       className="mb-1"
                     />
@@ -338,7 +370,7 @@ const AboutPage = () => {
                 <div className="icon-circle mb-3">
                   <i>
                     <img
-                      src="src/assets/images/about_us_img/Transparency.png"
+                      src="/images/Transparency.png"
                       alt="Transparency"
                       className="mb-1"
                     />
@@ -359,13 +391,13 @@ const AboutPage = () => {
                 <div className="icon-circle mb-3">
                   <i>
                     <img
-                      src="src/assets/images/about_us_img/Customer_Satisfaction.png"
+                      src="/images/Customer_Satisfaction.png"
                       alt="Customer_Satisfaction"
                       className="mb-1"
                     />
                   </i>
                 </div>
-                <h5 className="Founding_Values-title">Customer_Satisfaction</h5>
+                <h5 className="Founding_Values-title">Customer Satisfaction</h5>
                 <p className="Founding_Values-paragraph">
                   We are committed to a customer-centric approach in every
                   aspect of our business. Our team is empowered and{" "}
@@ -387,7 +419,7 @@ const AboutPage = () => {
                 <div className="icon-circle mb-3">
                   <i>
                     <img
-                      src="src/assets/images/about_us_img/Equality.png"
+                      src="/images/Equality.png"
                       alt="Equality"
                       className="mb-1"
                     />
@@ -413,7 +445,7 @@ const AboutPage = () => {
                 <div className="icon-circle mb-3">
                   <i>
                     <img
-                      src="src/assets/images/about_us_img/Community.png"
+                      src="/images/Community.png"
                       alt="Community"
                       className="mb-1"
                     />
@@ -439,13 +471,13 @@ const AboutPage = () => {
                 <div className="icon-circle mb-3">
                   <i>
                     <img
-                      src="src/assets/images/about_us_img/Another_values.png"
+                      src="/images/Another_values.png"
                       alt="Another_values"
                       className="mb-2 ms-1"
                     />
                   </i>
                 </div>
-                <h5 className="Founding_Values-title">Another_values</h5>
+                <h5 className="Founding_Values-title">Another values</h5>
                 <p className="Founding_Values-paragraph">
                   We wholeheartedly embrace{" "}
                   <b>
@@ -462,6 +494,7 @@ const AboutPage = () => {
 
         {/*Founding Values - end */}
       </main>
+)}
     </>
   );
 };

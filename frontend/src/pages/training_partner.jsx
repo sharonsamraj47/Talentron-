@@ -1,25 +1,57 @@
-import React from 'react';
+import React, { useState,useEffect } from 'react';
 import FormButton from "../components/form_button";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import FAQItem from '../components/FAQitems';
 import "../styles/global.css";
 
 
+
 const TrainingPartnerPage = () => {
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const images = document.querySelectorAll("img");
+  
+    if (images.length === 0) {
+      setLoading(false); // If there are no images, stop loading immediately
+      return;
+    }
+  
+    const imagePromises = Array.from(images).map((img) => {
+      return new Promise((resolve) => {
+        if (img.complete) {
+          resolve(); // Already loaded
+        } else {
+          img.onload = () => resolve(); // Resolve when loaded
+          img.onerror = () => resolve(); // Resolve even if there's an error
+        }
+      });
+    });
+  
+    Promise.all(imagePromises).then(() => setLoading(false)); // Set loading false once all images are loaded
+},[]);
 
     return (
         <>
+         {loading ? (
+        <div className="loading-container">
+          <div className="loader">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+   ) : (
         <main>
-          <FormButton/>
+
     {/* title head - start */}
     <div className="training-partner-head-container">
       <div className="dark-background">
         <div className="top-banner">
-          <i><img src="src/assets/images/training_partner_img/partners.png" /></i>
+          <i><img src="/images/partners.png" /></i>
           <span className="banner-text-style">Partners</span>
         </div>
         <h1 className="section-heading">Hi Training Partner!</h1>
-        <h1 className="section-heading blue-text">
+        <h1 className="Below-section-heading">
           You have enthusiastic in Training?
         </h1>
         <p className="section-paragraph">
@@ -27,6 +59,7 @@ const TrainingPartnerPage = () => {
           professionals, enrich careers, and earn a substantial income!
         </p>
       </div>
+      <FormButton/>
     </div>
 
     {/* title head - End  */} 
@@ -37,42 +70,42 @@ const TrainingPartnerPage = () => {
       <div className="partner-scroll-container">
         <div className="partner-image-container">
           <img
-            src="src/assets/images/training_partner_img/partner_1.png"
+            src="/images/partner_1.png"
             className="img-fluid"
             alt="Image 1"
           />
         </div>
         <div className="partner-image-container">
           <img
-            src="src/assets/images/training_partner_img/partner_2.png"
+            src="/images/partner_2.png"
             className="img-fluid"
             alt="Image 2"
           />
         </div>
         <div className="partner-image-container">
           <img
-            src="src/assets/images/training_partner_img/partner_3.png"
+            src="/images/partner_3.png"
             className="img-fluid"
             alt="Image 3"
           />
         </div>
         <div className="partner-image-container">
           <img
-            src="src/assets/images/training_partner_img/partner_4.png"
+            src="/images/partner_4.png"
             className="img-fluid"
             alt="Image 4"
           />
         </div>
         <div className="partner-image-container">
           <img
-            src="src/assets/images/training_partner_img/partner_5.png"
+            src="/images/partner_5.png"
             className="img-fluid"
             alt="Image 5"
           />
         </div>
         <div className="partner-image-container">
           <img
-            src="src/assets/images/training_partner_img/partner_6.png"
+            src="/images/partner_6.png"
             className="img-fluid"
             alt="Image 6"
           />
@@ -96,21 +129,21 @@ const TrainingPartnerPage = () => {
             <div className="why-client-overlay-container">
               {/* Main Image */}
               <img
-                src="src/assets/images/training_partner_img/explore talentron.png"
+                src="/images/explore talentron.png"
                 alt="Client choose us"
                 className="main-image"
               />
 
               {/* bottom-right Image Overlay */} 
               <img
-                src="src/assets/images/training_partner_img/900+.png"
+                src="/images/900+.png"
                 alt="8890 client"
                 className="overlay-top-right"
               />
 
               {/* top-right Text Overlay */}
               <img
-                src="src/assets/images/joining.png"
+                src="/images/joining.png"
                 alt="Join"
                 className="overlay-bottom-right"
               />
@@ -129,41 +162,41 @@ const TrainingPartnerPage = () => {
             <div className="points-container">
               <div className="point-row">
                 <div className="point-item">
-                  <img src="src/assets/images/teenyicons_tick-circle-solid.png" />
+                  <img src="/images/teenyicons_tick-circle-solid.png" />
                   Full-stack Development.
                 </div>
                 <div className="point-item">
-                  <img src="src/assets/images/teenyicons_tick-circle-solid.png" /> Dev
+                  <img src="/images/teenyicons_tick-circle-solid.png" /> Dev
                   Ops.
                 </div>
               </div>
               <div className="point-row">
                 <div className="point-item">
-                  <img src="src/assets/images/teenyicons_tick-circle-solid.png" />
+                  <img src="/images/teenyicons_tick-circle-solid.png" />
                   Front-end Development.
                 </div>
                 <div className="point-item">
-                  <img src="src/assets/images/teenyicons_tick-circle-solid.png" /> API
+                  <img src="/images/teenyicons_tick-circle-solid.png" /> API
                   Development.
                 </div>
               </div>
               <div className="point-row">
                 <div className="point-item">
-                  <img src="src/assets/images/teenyicons_tick-circle-solid.png" /> Date
+                  <img src="/images/teenyicons_tick-circle-solid.png" /> Date
                   Engineering.
                 </div>
                 <div className="point-item">
-                  <img src="src/assets/images/teenyicons_tick-circle-solid.png" />
+                  <img src="/images/teenyicons_tick-circle-solid.png" />
                   Database Design.
                 </div>
               </div>
               <div className="point-row">
                 <div className="point-item">
-                  <img src="src/assets/images/teenyicons_tick-circle-solid.png" />
+                  <img src="/images/teenyicons_tick-circle-solid.png" />
                   Software Testing.
                 </div>
                 <div className="point-item">
-                  <img src="src/assets/images/teenyicons_tick-circle-solid.png" /> Cloud
+                  <img src="/images/teenyicons_tick-circle-solid.png" /> Cloud
                   Computing.
                 </div>
               </div>
@@ -184,7 +217,7 @@ const TrainingPartnerPage = () => {
         <div className="card">
           <div className="card-body">
             <img
-              src="src/assets/images/training_partner_img/professional training.png"
+              src="/images/professional training.png"
               alt="Icon"
               className="mb-3 ms-5 mt-3 card-body-img"
             />
@@ -194,7 +227,7 @@ const TrainingPartnerPage = () => {
         <div className="card">
           <div className="card-body">
             <img
-              src="src/assets/images/training_partner_img/collaborate peers.png"
+              src="/images/collaborate peers.png"
               alt="Icon"
               className="mb-3 ms-5 mt-3"
             />
@@ -204,7 +237,7 @@ const TrainingPartnerPage = () => {
         <div className="card">
           <div className="card-body">
             <img
-              src="src/assets/images/training_partner_img/continous learning.png"
+              src="/images/continous learning.png"
               alt="Icon"
               className="mb-3 ms-5 mt-3"
             />
@@ -214,7 +247,7 @@ const TrainingPartnerPage = () => {
         <div className="card">
           <div className="card-body">
             <img
-              src="src/assets/images/training_partner_img/adaptation.png"
+              src="/images/adaptation.png"
               alt="Icon"
               className="mb-3 ms-5 mt-3"
             />
@@ -224,7 +257,7 @@ const TrainingPartnerPage = () => {
         <div className="card">
           <div className="card-body">
             <img
-              src="src/assets/images/training_partner_img/experienced mentors.png"
+              src="/images/experienced mentors.png"
               alt="Icon"
               className="mb-3 ms-5 mt-3 "
             />
@@ -262,7 +295,7 @@ const TrainingPartnerPage = () => {
             <div className="icon-circle mb-3">
               <i
                 ><img
-                  src="src/assets/images/training_partner_img/mdi_user-star.png"
+                  src="/images/mdi_user-star.png"
                   alt="mdi_user-Icon"
                   className="mb-1 me-1"
               /></i>
@@ -282,7 +315,7 @@ const TrainingPartnerPage = () => {
             <div className="icon-circle mb-3">
               <i
                 ><img
-                  src="src/assets/images/training_partner_img/streamline_bag-dollar-solid.png"
+                  src="/images/streamline_bag-dollar-solid.png"
                   alt="bag-dollar-Icon"
                   className="mb-1"
               /></i>
@@ -300,7 +333,7 @@ const TrainingPartnerPage = () => {
     <div className="container my-4">
       <div className="custom-section">
         <img
-          src="src/assets/images/training_partner_img/money-bag 2.png"
+          src="/images/money-bag 2.png"
           alt="Left Icon"
           className="ms-4"
         />
@@ -308,7 +341,7 @@ const TrainingPartnerPage = () => {
           You have the opportunity to earn a substantial income every month.
         </p>
         <img
-          src="src/assets/images/training_partner_img/money 1.png"
+          src="/images/money 1.png"
           alt="Right Icon"
           className="me-4"
         />
@@ -323,6 +356,7 @@ const TrainingPartnerPage = () => {
       <FAQItem/>
     
     </main>
+)}
 </>
 
     );

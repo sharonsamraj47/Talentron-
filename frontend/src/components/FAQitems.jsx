@@ -59,7 +59,7 @@ const FAQList = () => {
 
   return (
     <div className="container my-5">
-      <h2 className="headline d-flex justify-content-center">Frequently Asked Questions</h2>
+      <h2 className="headline d-flex justify-content-center"><span className="faq-desktop-view">Frequently Asked Questions</span><span className="faq-mobile-view">Frequently Asked <br/>&nbsp; &nbsp; &nbsp; Questions</span></h2>
       <h5 className="subtitle d-flex justify-content-center grey-text mb-5">Working on Real time projects</h5>
       <div className="accordion">
         {faqData.map((faq, index) => (

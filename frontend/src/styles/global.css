@@ -5,6 +5,10 @@
 @import "../styles/training_partner.css";
 @import "../styles/about_us.css";
 @import "../styles/contact_us.css";
+@import "../styles/employers.css";
+@import "../styles/form2.css";
+@import "../styles/trainerForm.css";
+@import "../styles/loaded.css";
 
 
 .headline {
@@ -38,7 +42,8 @@
 .subheading {
   font-family: "Montserrat", sans-serif;
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 700 !important;
+  color: #333333;
 }
 .points {
   font-family: "Montserrat", sans-serif;
@@ -109,7 +114,7 @@
   font-family: "Montserrat", sans-serif;
   font-size: 34px;
   font-weight: bold;
-  color: #006CBB !important;
+  color: #8DCFFF!important;
   text-shadow: #00000040;
   margin: 0;
   padding: 0;
@@ -137,9 +142,9 @@
 /* form button - start */
 
 .form-button {
-  position: fixed;
-  right: 20px;
-  top: 47%;
+  position: absolute;
+  right: 1% !important;
+  top: 99% !important;
   transform: translateY(-50%);
   width: 60px;
   height: 60px;
@@ -164,9 +169,70 @@
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
 }
 
+.form-button-home {
+  position: absolute;
+  top: 4%;
+  right: -2.5%;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #006cbb;
+  cursor: pointer;
+  z-index: 1000;
+  transition: all 0.3s ease-in-out;
+}
+
+.form-button-home img {
+  width: 23.33px;
+  height: 33.33px;
+}
+
+.form-button-home:hover {
+  background-color: #e0e0e0;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Tablet view */
+@media (max-width: 992px) {
+  .form-button-home {
+    width: 50px;
+    height: 50px;
+    top: 8px;
+    right: -25px;
+  }
+  
+  .form-button-home img {
+    width: 20px;
+    height: 30px;
+  }
+}
+
+/* Mobile view */
+@media (max-width: 576px) {
+  .form-button-home {
+    width: 45px;
+    height: 45px;
+    top: 5px;
+    right: 5px;
+  }
+  
+  .form-button-home img {
+    width: 18px;
+    height: 28px;
+  }
+}
+
 /* form button - end */
 
 /* header - start */
+.container-custom {
+  margin-inline: 6%;
+}
 
 .header-class {
   width: 1366px;
@@ -180,6 +246,7 @@
   font-size: 14px !important;
   font-weight: 500;
   font-family: "Montserrat", sans-serif;
+  color: #575757 !important;
 }
 .desktop-logo-img {
   width: 149.39px;
@@ -191,12 +258,13 @@
 }
 .navbar-collapse {
   position: absolute;
-  right: 0;
+  right: -8%;
   top: 100%;
   width: auto;
   background-color: #f8f9fa;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   z-index: 1030;
+  padding: 10px;
 }
 
 .navbar-toggler {
@@ -214,8 +282,12 @@
 /* header - end */
 
 /* Footer */
+.footer-top{
+  min-height: 297.5px !important;
+}
 .footer-bottom {
   position: relative;
+  min-height: 341.5px ;
 }
 .footer-background-color{
   background-color: #006CBB;
@@ -255,6 +327,27 @@
 }
 
 /* Footer - end */
+
+@media (max-width: 2560px){
+  .form-button {
+    right: 20px;
+    top: 26%;
+  }
+}
+
+@media (max-width: 1640px){
+  .form-button {
+    right: 20px;
+    top: 49%;
+  }
+}
+
+@media (max-width: 1440px){
+  .form-button {
+    right: 20px;
+    top: 49%;
+  }
+}
 
 @media (max-width: 1024px) {
   /* HomePage - start */
@@ -404,6 +497,11 @@
 
 @media (max-width: 992px) {
  
+  .form-button {
+    right: 20px;
+    top: 47%;
+  }
+
   /* Training partner - start */
 
   /* our compensation - start */
@@ -422,6 +520,8 @@
   /* Form button - start */
 
   .form-button {
+    right: 20px;
+    top: 47%;
     width: 50px;
     height: 50px;
   }
@@ -438,21 +538,7 @@
   /* Form button - end */
 
   /* below header - start */
-  .arrow-left,
-  .arrow-right {
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-    padding: 6px;
-  }
-  .arrow-left {
-    left: 10px;
-    top: 40%;
-  }
-  .arrow-right {
-    right: 10px;
-    top: 40%;
-  }
+
   .mobile-image-container {
     display: block;
     margin: 0 auto;
@@ -568,11 +654,17 @@
   .center-heading h5 {
     font-size: 1rem;
   }
+  .why-our-training-overlay-container img:first-child {
+    display: block;
+    margin: 0 auto;
+    width: 80%;
+    height: auto;
+  }
 
   .why-our-training-overlay-container img:last-child {
-    top: 69%;
-    left: -9%;
-    width: 30%;
+    top: 67.5%;
+    left:2.5%;
+    width: 25%;
   }
 
   /* why choose our training - end*/
@@ -591,9 +683,7 @@
     font-size: 0.9rem;
   }
 
-  .social-follow {
-    width: 20px;
-  }
+  
 
   /* Footer - end */
 
@@ -797,7 +887,7 @@
     height: auto;
   }
   .why-our-training-overlay-container img:last-child {
-    top: 74%;
+    top: 72%;
     left: 4%;
     width: 20%;
   }
@@ -858,7 +948,7 @@
 
 @media (max-width: 480px) {
 
-  .form-button {
+  .form-button, .form-button-home {
     display: none;
   }
 
@@ -873,6 +963,11 @@
   }
 
   /*tile head - end */
+
+  .mobile-image-container img {
+    width: 100%;
+    max-width: 198px;
+  }
 
   /* video container - start */
 
@@ -966,12 +1061,12 @@
     outline: none;
     font-family: "Montserrat", sans-serif;
     font-weight: 800;
-    font-size: 18px;
+    font-size: 18px !important;
     display: flex;
     flex-direction: column;
     align-items: flex-start !important;
     background-color: transparent;
-    color: black;
+    color:#333333 !important;
     border: none;
     box-shadow: none;
     position: relative;
@@ -1022,6 +1117,7 @@
   }
   
   .faq-answer-inside {
+    color: #454545;
     font-family: "Montserrat", sans-serif;
     font-weight: 400;
     font-size: 16px;
@@ -1032,3 +1128,218 @@
   }
   
   /* FAQ - end */
+
+  /* footer form 2 - start */
+
+ /* Pop-up Box */
+.popup-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  max-width: 300px;
+  width: 90%;
+  position: relative;
+}
+.modal-content {
+  border:none !important;
+  background-color: white !important;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+}
+.modal-footer {
+  display: flex !important;
+  justify-content: center !important;
+  width: 100%;
+  border-top: none; /* Optional: Removes the default line above the footer */
+
+}
+.modal-title {
+  color: black;
+  font-weight: bold;
+  text-align: center;
+  
+}
+.modal-header {
+  display: flex ;
+  justify-content: center;
+  width: 100%;
+  border-bottom: none; 
+}
+
+
+  .boxy {
+    width: 100%;
+    height: 210px;
+    margin-top: 0px;
+    
+    background-color: #006CBB;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.text3 {
+    text-align: center; 
+    margin-bottom: 42px; 
+    margin-top: 27px;
+}
+.text3 span {
+    
+    font-family: Montserrat;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 29.26px;
+    color: #FFFFFF;  
+}
+.text3 p{
+    margin-top: 2px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17.07px;
+}
+.modal-message-error {
+
+    color: red !important;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+  } 
+  .modal-message-success {
+    
+    color: rgb(12, 117, 19) !important;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+  }
+.text3 p {
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.5px;
+    color: #FFFFFF;
+}
+.form {
+    display: flex;
+    align-items: center;
+    gap: 42px;    
+    margin-bottom: 42px; 
+}
+.text {
+    width: 473px; 
+    height: 40px; 
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17.07px;
+    padding-left: 22px;
+}
+
+.custom-submit-btn {
+  margin: 0;
+  padding: 0;
+  width: 170px; 
+  height: 40px; 
+  background-color: #333333;
+  color: #FFFFFF;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 19.5px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+ 
+}
+
+/* Hover Effect */
+.custom-submit-btn:hover {
+  background-color: #555555;
+  transform: scale(1.05);
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Click Animation */
+.custom-submit-btn:active {
+  transform: scale(0.95);
+}
+@media screen and (min-width: 1700px) {
+    .boxy{
+        height: 300px;
+    }
+    .text3 span{
+        font-size: 30px;
+    }
+    .text3 p{
+        font-size: 28px;
+        margin-top: 5px;
+    }  
+}
+@media screen and (max-width: 1200px) {
+    .boxy {
+        height: auto;
+        margin-top: 20px;
+        padding: 20px;
+    }
+    .text3 {
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+    .text3 span {
+        font-size: 20px;
+        line-height: 24px;
+    }
+    .text3 p {
+        font-size: 14px;
+        line-height: 17px;
+    }
+    .form {
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        height: auto;
+        align-items: center;
+    }
+    .text {
+        width: 90%;
+        max-width: 400px;
+        height: 40px;
+    }
+    #button12 {
+        width: 150px;
+        height: 40px;
+}
+}
+
+  /* footer form 2 - end */
+
+  @media (min-width: 363px){
+  .faq-mobile-view{
+    display: none;
+  }
+}
+@media (max-width: 362px){
+  .faq-desktop-view{
+    display: none;
+  }
+}

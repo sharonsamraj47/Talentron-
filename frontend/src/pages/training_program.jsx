@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState,useEffect} from "react";
 import FormButton from "../components/form_button";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import FAQItem from '../components/FAQitems';
@@ -6,16 +6,47 @@ import "../styles/global.css";
 import TabContent from '../components/tabContent'
 
 const TrainingProgramPage = () => {
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const images = document.querySelectorAll("img");
+  
+    if (images.length === 0) {
+      setLoading(false); // If there are no images, stop loading immediately
+      return;
+    }
+  
+    const imagePromises = Array.from(images).map((img) => {
+      return new Promise((resolve) => {
+        if (img.complete) {
+          resolve(); // Already loaded
+        } else {
+          img.onload = () => resolve(); // Resolve when loaded
+          img.onerror = () => resolve(); // Resolve even if there's an error
+        }
+      });
+    });
+  
+    Promise.all(imagePromises).then(() => setLoading(false)); // Set loading false once all images are loaded
+},[]);
+
   return (
     <>
+     {loading ? (
+        <div className="loading-container">
+          <div className="loader">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+      ) : (
       <main>
-        <FormButton/>
         {/* title head - start */}
         <div className="training-program-head-container">
           <div className="dark-background">
             <div className="top-banner">
               <i>
-                <img src="src/assets/images/training_partner_img/partners.png" />
+                <img src="/images/partners.png" />
               </i>
               <span className="banner-text-style">Programs</span>
             </div>
@@ -25,6 +56,7 @@ const TrainingProgramPage = () => {
             At Talentron, we make it possible to become a software engineer, data engineer, or software tester.
             </p>
           </div>
+          <FormButton/>
         </div>
 
         {/* title head - End */}
@@ -51,31 +83,31 @@ const TrainingProgramPage = () => {
         <div className="card">
           <div className="card-body">
             <img
-              src="src/assets/images/training_program_img/hands-on-project.png"
+              src="/images/hands-on-project.png"
               alt="Icon"
-              className="ms-5 mt-3"
+              className="mt-3"
             />
-            <h5 className="card-title">Hands on Project</h5>
+            <h5 className="card-title me-1">Hands on Project</h5>
           </div>
         </div>
         <div className="card">
           <div className="card-body">
             <img
-              src="src/assets/images/training_program_img/collab-with-peers.png"
+              src="/images/collab-with-peers.png"
               alt="Icon"
-              className="ms-5 mt-3"
+              className="mt-3"
             />
-            <h5 className="card-title">Collab with Peers</h5>
+            <h5 className="card-title me-2">Collab with Peers</h5>
           </div>
         </div>
         <div className="card">
           <div className="card-body">
             <img
-              src="src/assets/images/training_program_img/experi-mentor.png"
+              src="/images/experi-mentor.png"
               alt="Icon"
-              className="ms-5 mt-3"
+              className="mt-3"
             />
-            <h5 className="card-title">Experienced mentors</h5>
+            <h5 className="card-title-last">Experienced mentors</h5>
           </div>
         </div>
         </div>
@@ -84,9 +116,9 @@ const TrainingProgramPage = () => {
         {/*  Right Section */} 
         <div className="col-lg-6">
           <div className="career-overlay-container">
-            <img src="src/assets/images/training_program_img/person-front-computer.png" alt="person-front-computer-img" />
-            <img src="src/assets/images/training_program_img/165+ projects RT.png" className="bottomRight-img" alt="165+ RT Projects" />
-            <img src="src/assets/images/training_program_img/Real-time-exp.png" className="topRight-img" alt="RT exp" />
+            <img src="/images/person-front-computer.png" alt="person-front-computer-img" />
+            <img src="/images/165+ projects RT.png" className="bottomRight-img" alt="165+ RT Projects" />
+            <img src="/images/Real-time-exp.png" className="topRight-img" alt="RT exp" />
           </div>
         </div>
       </div>
@@ -106,21 +138,21 @@ const TrainingProgramPage = () => {
           <div className="showcasing-portfolio-overlay-container">
             {/*  Main Image */} 
             <img
-              src="src/assets/images/training_program_img/showcasing_portfolio.png"
+              src="/images/showcasing_portfolio.png"
               alt="showcasing_portfolio_img"
               className="main-image"
             />
 
             {/*  Top-right Image Overlay */} 
             <img
-              src="src/assets/images/training_program_img/resume.png"
+              src="/images/resume.png"
               alt="resume-png"
               className="showcasing-portfolio-overlay-top-right"
             />
 
           {/*  Bottom-right Text Overlay */} 
             {/* <img
-              src="src/assets/images/joining.png"
+              src="/images/joining.png"
               alt="Join"
               className="showcasing-portfolio-overlay-bottom-right"
             /> */}
@@ -129,28 +161,28 @@ const TrainingProgramPage = () => {
 
         {/*  Right Section */} 
         <div className="col-lg-6">
-          <h4 className="portfolio-sideheading">Showcasing Portfolio</h4>
+          <h4 className="portfolio-sideheading" >Showcasing Portfolio</h4>
           <p className="portfolio-context">
           At Talentron, we make it possible to become a software engineer, data engineer, or software tester.
           </p>
           <ul className="list-unstyled">
             <li className="tick-mark portfolio-points mb-2">
-              <img src="src/assets/images/about_us_img/white-tick.png" /> You'll be ready to enter the job market.
+            <p className="portfolio-context"> <img src="/images/white-tick.png" /> You'll be ready to enter the job market.</p>
             </li>
             <li className="tick-mark portfolio-points mb-2">
-              <img src="src/assets/images/about_us_img/white-tick.png" /> Opportunities for networking.
+            <p className="portfolio-context"> <img src="/images/white-tick.png" /> Opportunities for networking.</p>
             </li>
             <li className="tick-mark portfolio-points mb-2">
-              <img src="src/assets/images/about_us_img/white-tick.png" /> Internships with dynamic tech startups.
+            <p className="portfolio-context"> <img src="/images/white-tick.png" /> Internships with dynamic tech startups.</p>
             </li>
             <li className="tick-mark portfolio-points mb-2">
-              <img src="src/assets/images/about_us_img/white-tick.png" /> Gain practical experience.
+            <p className="portfolio-context"> <img src="/images/white-tick.png" /> Gain practical experience.</p>
             </li>
             <li className="tick-mark portfolio-points mb-2">
-              <img src="src/assets/images/about_us_img/white-tick.png" /> Tackle complex coding issues
+            <p className="portfolio-context"> <img src="/images/white-tick.png" /> Tackle complex coding issues</p>
             </li>
             <li className="tick-mark portfolio-points mb-2">
-              <img src="src/assets/images/about_us_img/white-tick.png" /> Collaborate with seasoned developers.
+            <p className="portfolio-context">   <img src="/images/white-tick.png" /> Collaborate with seasoned developers.</p>
             </li>
           </ul>
           <p className="portfolio-context">
@@ -166,7 +198,7 @@ const TrainingProgramPage = () => {
     <div className="container my-4">
       <div className="custom-blue-section">
         <img
-          src="src/assets/images/training_program_img/hands-on-project.png"
+          src="/images/hands-on-project.png"
           alt="Left Icon"
           className="ms-4"
         />
@@ -174,7 +206,7 @@ const TrainingProgramPage = () => {
         Our internships can lead to full-time positions <b>at reputable firms, offering continuous learning opportunities.</b> Over time, specialize in areas like <b>cloud computing and artificial intelligence, becoming a key player in cutting-edge projects.</b>
         </p>
         <img
-          src="src/assets/images/training_program_img/collab-with-peers.png"
+          src="/images/collab-with-peers.png"
           alt="Right Icon"
           className="me-4"
         />
@@ -184,6 +216,7 @@ const TrainingProgramPage = () => {
 
         <FAQItem/>
         </main>
+)}
     </>
   );
 };
